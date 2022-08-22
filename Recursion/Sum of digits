@@ -1,0 +1,20 @@
+public class Main
+{
+	public static void main(String[] args) {
+	    int n = 345;
+		System.out.println(sum(n));
+	}
+	
+	public static int sum(int n){
+	    if(n==0){
+	        return 0;
+	    }
+	   // int digit = n%10;
+	   // int ans = digit + sum(n/10);
+	   // return ans;
+	   
+	   //OR
+	   
+	   return n%10 + sum(n/10);
+	}
+}
