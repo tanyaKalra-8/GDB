@@ -1,0 +1,39 @@
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+		Scanner sc = new Scanner (System.in);
+		int n = sc.nextInt();
+		int st = n;
+		int sp = -1;
+		for(int i=1;i<= 2*n- 1;i++){
+		    if(i<=1){
+		        st--;
+		    }
+		    for(int j=1;j<=st;j++){
+		        System.out.print("*");
+		    } 
+		    for(int j=1; j<=sp;j++){
+		        System.out.print(" ");
+		    }
+		    if(i== 2*n- 1){
+		        st--;
+		    }
+		    if(i<=1){
+		        st++;
+		    }
+		    for(int j=1;j<=st;j++){
+		        System.out.print("*");
+		    } 
+		    if(i<n){
+		        st--;
+		        sp+=2;
+		    }
+		    else{
+		        st++;
+		        sp-=2;
+		    }
+		    System.out.println();
+		}
+	}
+}
