@@ -1,0 +1,24 @@
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+		Scanner sc = new Scanner (System.in);
+		int n= sc.nextInt();
+		String str="";
+		sum(n,0,0,str);
+		
+	}
+	public static void sum(int n, int open, int close, String str){
+	    if(str.length()==2*n){
+	        System.out.println(str);
+	        return;
+	    }
+	    if(open<n){
+	        sum(n,open+1,close,str+"(");
+	    }
+	    if(close<open){
+	        sum(n,open,close+1,str+")");
+	    }
+	 }
+}
+
