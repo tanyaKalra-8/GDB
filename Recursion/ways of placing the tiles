@@ -1,0 +1,20 @@
+import java.util.*;
+public class Main
+/*
+   Q- You are given a wall of height 2 units & width n. You are also given multiple tiles of dimentions 2*1.
+    Print the total sum of ways in which we can place the tiles on the wall. 
+*/
+
+{
+	public static void main(String[] args) {
+		Scanner sc = new Scanner (System.in);
+		int n= sc.nextInt();
+		System.out.println(wall(n));
+	}
+	public static int wall(int n){
+	    if(n==0 || n==1 || n==2){
+	        return n;
+	    }
+	    return wall(n-1) + wall(n-2);
+	 }
+}
