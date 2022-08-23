@@ -1,0 +1,27 @@
+import java.util.*;
+public class Main{
+    
+    static class student
+    {
+        String name;
+        int age;
+
+        student(String _name, int _age){
+            System.out.println("Constructor called :)");
+            name = _name;
+            age= _age;
+        }
+    }
+    public static void main(String[] args) {
+        Scanner sc = new Scanner (System.in);
+        student[] studentData = new student[3];
+        for(int i=0;i<3;i++){
+            String st = sc.next();
+            int ag = sc.nextInt();
+            studentData[i] = new student(st,ag);
+        }
+        for(int i=0;i<3;i++){
+            System.out.println(studentData[i].name + " " + studentData[i].age);
+        }
+	}
+}
