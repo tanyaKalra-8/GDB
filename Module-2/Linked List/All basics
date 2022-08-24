@@ -1,0 +1,136 @@
+import java.util.*;
+class Node{
+    String data;
+    Node next;
+
+    Node(String data){
+        this.data=data;
+        this.next=null;
+    }
+}
+public class LL{
+    
+    static Node head;
+    static Node tail;
+
+// Check whether list is cyclic or not
+    static boolean cyclic(){
+        Node slow = head;
+        Node fast = head;
+        do {
+            if(fast == null || fast.next==null){
+                return false;
+            }
+            slow=slow.next;
+            fast=fast.next.next;
+        } while (fast!=slow);
+        return true;
+    }
+
+// Print in reverse
+    static void printinreverse(Node currNode){
+        if(currNode==null){
+            // System.out.print("null ->");
+            return;
+        }
+        printinreverse(currNode.next);
+        System.out.print(currNode.data + "->");
+    }
+    
+// add first
+    static void addFirst(String data){
+        Node newNode = new Node(data);
+        if(head==null){
+            head = newNode;
+            return;
+        }
+        newNode.next=head;
+        head=newNode;
+    }
+
+// add last
+    static void addLast(String data){
+        Node newNode = new Node(data);
+        if(head==null){
+           head = newNode;
+           return;
+        }
+        Node currNode = head;
+        while(currNode.next !=null){
+            currNode = currNode.next;
+
+        }
+
+        currNode.next = newNode;
+        // newNode.next=head;
+        return;
+    }
+
+
+// For circular list use this adding 
+    static void circleList(String data){
+        Node newNode = new Node(data);
+        if(head==null){
+           head = newNode;
+           tail= newNode;
+           return;
+        }
+        tail.next=newNode;
+        newNode.next=head;
+        tail=newNode;
+    }
+
+// printing the list
+    static void printList(){
+        if(head==null){
+            System.out.println("List is empty");
+            return;
+        }
+        Node currNode = head;
+        while(currNode !=null){
+            System.out.print(currNode.data + "->");
+            currNode = currNode.next;
+        }
+
+        System.out.print("null");
+    }
+
+public static void main(String[] args) { 
+    Scanner sc = new Scanner (System.in);
+    int n=sc.nextInt();
+
+
+// taking data and storing it at tail
+    for(int i=0;i<n;i++){
+        String data= sc.next();
+        addLast(data);  
+    }
+
+// // taking data input and storing it in circular way
+//     for(int i=0;i<n;i++){
+//         String data= sc.next();
+//         circleList(data);  
+//     }
+
+// printing the list
+    printList();
+    System.out.println();
+
+// printing the list in reverse
+    Node currNode = head;
+    printinreverse(currNode);
+    System.out.println("null");
+
+
+// checking is the list is cyclic or not
+    if(cyclic()==true){
+        System.out.println("Linked list is Cyclic ");
+    }
+    else{
+        System.out.println("Linked list is not Cyclic ");
+    }
+
+// closing the Scanner object
+    sc.close();
+    }
+}
